@@ -56,7 +56,7 @@ def linkedin_Profile_Lead_Generation(email, password, profiles_to_scrape_name):
         
         while up:
             
-            time.sleep(5)
+            time.sleep(10)
             
             one_page_profiles_container = page.locator("ul[role='list']")
             
@@ -71,7 +71,15 @@ def linkedin_Profile_Lead_Generation(email, password, profiles_to_scrape_name):
                     print(href)
                     
             
-            page.locator('button#ember87').click()
+            if page.locator('button.artdeco-button.artdeco-button--muted.artdeco-button--icon-right.artdeco-button--1.artdeco-button--tertiary.ember-view.artdeco-pagination__button.artdeco-pagination__button--next').count() > 0:
+                
+                page.locator('button.artdeco-button.artdeco-button--muted.artdeco-button--icon-right.artdeco-button--1.artdeco-button--tertiary.ember-view.artdeco-pagination__button.artdeco-pagination__button--next').click()
+                
+                
+            else:
+                
+                up = False
+        
                 
                 
             
